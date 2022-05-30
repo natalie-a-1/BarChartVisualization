@@ -1,13 +1,15 @@
     
     //grabbing data from API and storing in values
-    var height = 800;
-    var width = 940;
-    var padding = 50;
+    var height = 600;
+    var width = 500;
+    var padding = 100;
 
     var hScale;
     var wScale;
     var yScale
     var xScale;
+    var svg;
+
 
     var values = [];
     var data = d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
@@ -16,10 +18,11 @@
         console.log(values);
         svgBox();
         scales();
+        axes();
     });
 
     //creating svg
-    let svgBox = () => {
+     var svgBox = () => {
         d3.select('body')
         .append('svg')
         .attr('width', width)
@@ -30,10 +33,12 @@
         .text('USA GDP')
         .attr('id', 'title');
 
+        svg = d3.select('svg');
+
     };
 
     //create scales
-    let scales = () => {
+    var scales = () => {
         hScale = d3.scaleLinear()
         .domain([0, d3.max(values, (item) => {
             return item[1];
@@ -49,8 +54,10 @@
         });
 
         xScale = d3.scaleTime()
-        .domain([d3.min(dates), d3.max(dates)])
+        .domain(d3.extent(dates))
         .range([padding, width - padding]);
+
+        console.log(dates);
 
         yScale = d3.scaleLinear()
         .domain([0, d3.max(values, (item) => {
@@ -60,7 +67,12 @@
     };
 
     //create axes
-    let axes = () => {
+    var axes = () => {
+        let xAxis = d3.axisBottom(xScale);
 
+        svg.append('g')
+        .call(xAxis)
+        .attr('id', 'x-axis')
+        .attr('transform', 'translate(0,' + (height - padding) + ')')
     };
 

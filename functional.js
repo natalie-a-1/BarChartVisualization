@@ -1,8 +1,8 @@
     
     //grabbing data from API and storing in values
-    var height = 600;
-    var width = 500;
-    var padding = 100;
+    var height = 800;
+    var width = 940;
+    var padding = 50;
 
     var hScale;
     var wScale;

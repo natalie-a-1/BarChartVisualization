@@ -48,7 +48,15 @@
             return new Date(item[0]);
         });
 
-        console.log(dates);
+        xScale = d3.scaleTime()
+        .domain([d3.min(dates), d3.max(dates)])
+        .range([padding, width - padding]);
+
+        yScale = d3.scaleLinear()
+        .domain([0, d3.max(values, (item) => {
+            return item[1];
+        })])
+        .range([height - padding, padding]);
     };
 
     //create axes

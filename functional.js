@@ -19,6 +19,7 @@
         svgBox();
         scales();
         axes();
+        createRect();
     });
 
     //creating svg
@@ -47,7 +48,7 @@
 
         wScale = d3.scaleLinear()
         .domain([0, values.length -1])
-        .range(padding, width - padding);
+        .range([padding, (width - padding)]);
 
         let dates = values.map((item) => {
             return new Date(item[0]);
@@ -81,5 +82,27 @@
         .call(yAxis)
         .attr('id', 'y-axis')
         .attr('transform', 'translate(' + padding + ',0)');
+    };
+
+    var createRect = () => {
+        svg.selectAll('rect')
+        .data(values)
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('width', (width - (2 * padding)) / values.length)
+        .attr('data-date', (item) => {
+            return item[0];
+        })
+        .attr('data-gdp', (item) => {
+            return item[1];
+        })
+        .attr('height', (item) => {
+            return hScale(item[1]);
+        })
+        .attr('x', (item, index) => {
+            return wScale(index);
+        })
+
     };
 

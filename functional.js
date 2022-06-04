@@ -73,6 +73,13 @@
         svg.append('g')
         .call(xAxis)
         .attr('id', 'x-axis')
-        .attr('transform', 'translate(0,' + (height - padding) + ')')
+        .attr('transform', 'translate(0,' + (height - padding) + ')');
+
+        let yAxis = d3.axisLeft(yScale);
+
+        svg.append('g')
+        .call(yAxis)
+        .attr('id', 'y-axis')
+        .attr('transform', 'translate(' + padding + ',0)');
     };
 

@@ -103,6 +103,9 @@
         .attr('x', (item, index) => {
             return wScale(index);
         })
+        .attr('y', (item) => { 
+            return (height - padding) - hScale(item[1]);
+        })
 
     };
 

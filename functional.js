@@ -1,3 +1,4 @@
+
     
     //grabbing data from API and storing in values
     var height = 800;
@@ -9,13 +10,13 @@
     var yScale
     var xScale;
     var svg;
+    var dates;
 
 
     var values = [];
     var data = d3.json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
     .then(data => {
         values = data.data;
-        console.log(values);
         svgBox();
         scales();
         axes();
@@ -50,15 +51,13 @@
         .domain([0, values.length -1])
         .range([padding, (width - padding)]);
 
-        let dates = values.map((item) => {
+        dates = values.map((item) => {
             return new Date(item[0]);
         });
 
         xScale = d3.scaleTime()
         .domain(d3.extent(dates))
         .range([padding, width - padding]);
-
-        console.log(dates);
 
         yScale = d3.scaleLinear()
         .domain([0, d3.max(values, (item) => {
@@ -85,6 +84,12 @@
     };
 
     var createRect = () => {
+
+        let tooltip = d3.selectAll('#tooltip')
+        .style('visibility', 'hidden')
+        .style('width', 'auto')
+        .style('height', 'auto');
+        
         svg.selectAll('rect')
         .data(values)
         .enter()
@@ -106,6 +111,11 @@
         .attr('y', (item) => { 
             return (height - padding) - hScale(item[1]);
         })
+        .on('mouseover', function (item) {
+                tooltip.transition()
+                    .style('visibility', 'visible');
 
+                tooltip
+                .text(item[0])
+            })
     };
-

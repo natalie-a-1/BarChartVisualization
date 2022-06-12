@@ -118,4 +118,8 @@
                 tooltip
                 .text(item[0])
             })
+        .on('mouseout', function (item) {
+            tooltip.transition()
+                .style('visibility', 'hidden');
+        })
     };

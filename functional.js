@@ -83,6 +83,7 @@
         .attr('transform', 'translate(' + padding + ',0)');
     };
 
+    //create bars
     var createRect = () => {
 
         let tooltip = d3.selectAll('#tooltip')
@@ -114,6 +115,8 @@
         .on('mouseover', function (item) {
                 tooltip.transition()
                     .style('visibility', 'visible');
+
+                    document.querySelector('#tooltip').setAttribute('data-date', item[0]);
 
                 tooltip
                 .text(item[0])

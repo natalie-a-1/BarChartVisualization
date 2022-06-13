@@ -87,9 +87,7 @@
     var createRect = () => {
 
         let tooltip = d3.selectAll('#tooltip')
-        .style('visibility', 'hidden')
-        .style('width', 'auto')
-        .style('height', 'auto');
+        .style('visibility', 'hidden');
         
         svg.selectAll('rect')
         .data(values)
@@ -114,12 +112,19 @@
         })
         .on('mouseover', function (item) {
                 tooltip.transition()
-                    .style('visibility', 'visible');
+                    .style('visibility', 'visible')
+                    .style('position', 'relative');
 
-                    document.querySelector('#tooltip').setAttribute('data-date', item[0]);
+                document.querySelector('#tooltip').setAttribute('data-date', item[0]);
 
                 tooltip
-                .text(item[0])
+                .text(item[0]);
+
+
+                tooltip.style('left', (item * width) + 50 + 'px')
+                .style('top', height - 100 + 'px')
+                .style('transform', 'translateX(60px)');
+                
             })
         .on('mouseout', function (item) {
             tooltip.transition()

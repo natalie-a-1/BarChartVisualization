@@ -1,0 +1,34 @@
+.bar {
+    fill: #12c04c;
+    border: none;
+    opacity: .7;
+}
+
+.bar:hover {
+    opacity: 1;
+}
+
+#title {
+    fill: black;
+    font-weight: 200;
+    opacity: 1;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+#tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    color: black;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    font: 12px;
+    background: none;
+    box-shadow: 1px 1px 10px;
+    border-radius: 2px;
+    pointer-events: none;
+  }

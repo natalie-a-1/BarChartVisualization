@@ -2,7 +2,7 @@
     
     //grabbing data from API and storing in values
     var height = 800;
-    var width = 940;
+    var width = 1496;
     var padding = 50;
 
     var hScale;
@@ -29,6 +29,7 @@
         .append('svg')
         .attr('width', width)
         .attr('height', height)
+        .attr('overflow', 'hidden')
         .append('text')
         .attr('x', width/2)
         .attr('y', height/7)
@@ -36,6 +37,7 @@
         .attr('id', 'title');
 
         svg = d3.select('svg');
+        window.scrollTo(0,0);
 
     };
 
@@ -130,4 +132,5 @@
             tooltip.transition()
                 .style('visibility', 'hidden');
         })
+        window.scrollTo(0,0);
     };

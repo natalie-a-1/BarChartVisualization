@@ -1,9 +1,8 @@
 
-    
     //grabbing data from API and storing in values
-    var height = 800;
-    var width = 1496;
-    var padding = 50;
+    var height = 830;
+    var width = 1504;
+    var padding = 70;
 
     var hScale;
     var wScale;
@@ -25,16 +24,11 @@
 
     //creating svg
      var svgBox = () => {
-        d3.select('body')
+        d3.select('#barArea')
         .append('svg')
-        .attr('width', width)
+        .attr('width', (width/2)+padding)
         .attr('height', height)
-        .attr('overflow', 'hidden')
-        .append('text')
-        .attr('x', width/2)
-        .attr('y', height/7)
-        .text('USA GDP')
-        .attr('id', 'title');
+        .attr('overflow', 'hidden');
 
         svg = d3.select('svg');
         window.scrollTo(0,0);
@@ -51,7 +45,7 @@
 
         wScale = d3.scaleLinear()
         .domain([0, values.length -1])
-        .range([padding, (width - padding)]);
+        .range([padding, (width/2)]);
 
         dates = values.map((item) => {
             return new Date(item[0]);
@@ -59,7 +53,7 @@
 
         xScale = d3.scaleTime()
         .domain(d3.extent(dates))
-        .range([padding, width - padding]);
+        .range([padding, (width/2)]);
 
         yScale = d3.scaleLinear()
         .domain([0, d3.max(values, (item) => {
@@ -89,14 +83,15 @@
     var createRect = () => {
 
         let tooltip = d3.selectAll('#tooltip')
-        .style('visibility', 'hidden');
+        .style('visibility', 'hidden')
+        .attr('class', 'item');
         
         svg.selectAll('rect')
         .data(values)
         .enter()
         .append('rect')
         .attr('class', 'bar')
-        .attr('width', (width - (2 * padding)) / values.length)
+        .attr('width', ((width/2) - (2 * padding)) / values.length)
         .attr('data-date', (item) => {
             return item[0];
         })
@@ -119,12 +114,11 @@
 
                 document.querySelector('#tooltip').setAttribute('data-date', item[0]);
 
-                tooltip
-                .text(item[0]);
+                tooltip.html("$ " + item[1] + " billion" + '<br>' + "" + item[0])
+                .style('font-weight', 1000 + 'px')
 
-
-                tooltip.style('left', (item * width) + 50 + 'px')
-                .style('top', height - 100 + 'px')
+                tooltip.style('left', 220 + 'px')
+                .style('top', 400 + 'px')
                 .style('transform', 'translateX(60px)');
                 
             })

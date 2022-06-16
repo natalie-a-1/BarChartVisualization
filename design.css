@@ -2,6 +2,8 @@
     fill: #12c04c;
     border: none;
     opacity: .7;
+    border-radius: 2px;
+    border-color: #0eab42;
 }
 
 .bar:hover {
@@ -14,9 +16,39 @@
     opacity: 1;
     font-size: 30px;
     letter-spacing: 5px;
+    position: absolute;
+    text-align: center;
+    left: 65%;
+    padding-top: 2%;
 }
 
-#tooltip {
+#barArea {
+    position: absolute;
+    left: 45%;
+    padding-top: 2%;
+}
+
+#lessTitle {
+    color: #12c04c;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: 100%;
+    text-align: center;
+}
+
+#words {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    right: 65%;
+    padding-top: 15%;
+}
+
+.item {
+    font-weight: 70%;
+}
+
+/* #tooltip {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +60,6 @@
     padding: 5px;
     font: 12px;
     background: none;
-    box-shadow: 1px 1px 10px;
     border-radius: 2px;
     pointer-events: none;
-  }
+  } */

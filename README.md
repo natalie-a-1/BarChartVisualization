@@ -1,9 +1,9 @@
 # Data Visualization with Bar Charts
 
-<img width="892" alt="Screen Shot 2022-06-13 at 10 20 17 AM" src="https://user-images.githubusercontent.com/98536588/173388128-bdb18fe8-4abf-4a7c-8562-5ffc17671c55.png">
+<img width="1438" alt="Screen Shot 2022-06-15 at 8 21 51 PM" src="https://user-images.githubusercontent.com/98536588/173971618-e5048229-b5b8-41f3-9b02-64e128c4212d.png">
 
 
-<img width="1506" alt="Screen Shot 2022-06-13 at 10 18 57 AM" src="https://user-images.githubusercontent.com/98536588/173388187-6d37c332-114b-42d4-8d95-e8fc39039ce8.png">
+<img width="1465" alt="Screen Shot 2022-06-15 at 8 23 16 PM" src="https://user-images.githubusercontent.com/98536588/173971636-59e0253e-dce9-463d-8859-777080277d38.png">
 
 
 [Dataset API](https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json)

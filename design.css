@@ -47,19 +47,3 @@
 .item {
     font-weight: 70%;
 }
-
-/* #tooltip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    text-align: center;
-    color: black;
-    width: 100px;
-    height: 100px;
-    padding: 5px;
-    font: 12px;
-    background: none;
-    border-radius: 2px;
-    pointer-events: none;
-  } */
